@@ -1,11 +1,58 @@
-
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Phone, Mail, MessageCircle, Clock, MapPin, Send } from 'lucide-react';
 
 const Contact = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const sectionRef = useRef<HTMLElement | null>(null);
   const elementsRef = useRef<(HTMLElement | null)[]>([]);
+
+  // Estado para controlar os campos do formulário
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    service: 'Rastreamento Veicular',
+    message: ''
+  });
+
+  // Função para atualizar os campos do formulário
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  // Função para enviar os dados via WhatsApp
+  const handleFormSubmit = () => {
+    // Formatear mensagem para WhatsApp
+    const whatsappMessage = `Olá! Gostaria de solicitar um orçamento.
+
+*Dados de Contato:*
+📝 Nome: ${formData.name}
+📱 Telefone: ${formData.phone}
+🔧 Serviço de Interesse: ${formData.service}
+
+*Mensagem:*
+${formData.message}
+
+Aguardo retorno!`;
+
+    // Codificar mensagem para URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappUrl = `https://wa.me/5521964565364?text=${encodedMessage}`;
+    
+    console.log('Mensagem formatada:', whatsappMessage);
+    console.log('URL do WhatsApp:', whatsappUrl);
+    
+    // Abrir WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    // Limpar formulário
+    setFormData({
+      name: '',
+      phone: '',
+      service: 'Rastreamento Veicular',
+      message: ''
+    });
+  };
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -102,7 +149,6 @@ const Contact = () => {
           </p>
         </div>
 
-        {/* Métodos de contato */}
         <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {contactMethods.map((method, index) => (
             <div 
@@ -148,9 +194,7 @@ const Contact = () => {
           ))}
         </div>
 
-        {/* Informações adicionais */}
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 mb-12 sm:mb-16">
-          {/* Horário e localização */}
           <div 
             ref={el => elementsRef.current[6] = el}
             className="opacity-0"
@@ -201,7 +245,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Formulário de contato simples */}
           <div 
             ref={el => elementsRef.current[7] = el}
             className="opacity-0"
@@ -217,7 +260,10 @@ const Contact = () => {
                     Seu Nome
                   </label>
                   <input 
-                    type="text" 
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                     placeholder="Digite seu nome completo"
                   />
@@ -228,7 +274,10 @@ const Contact = () => {
                     Telefone/WhatsApp
                   </label>
                   <input 
-                    type="tel" 
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                     placeholder="(21) 99999-9999"
                   />
@@ -238,7 +287,12 @@ const Contact = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Serviço de Interesse
                   </label>
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
+                  <select 
+                    name="service"
+                    value={formData.service}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  >
                     <option>Rastreamento Veicular</option>
                     <option>Vídeo Monitoramento</option>
                     <option>ADAS - Sensor de Fadiga</option>
@@ -253,6 +307,9 @@ const Contact = () => {
                     Mensagem
                   </label>
                   <textarea 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     rows={4}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                     placeholder="Descreva sua necessidade ou dúvida..."
@@ -261,9 +318,7 @@ const Contact = () => {
               </div>
               
               <button 
-                onClick={() => {
-                  window.open('https://wa.me/5521964565364?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20os%20serviços%20da%20Auto%20Controller%20System.', '_blank');
-                }}
+                onClick={handleFormSubmit}
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
               >
                 <Send className="w-5 h-5" />
@@ -273,7 +328,6 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Call to Action final */}
         <div 
           ref={el => elementsRef.current[8] = el}
           className="bg-gradient-to-r from-blue-900 to-blue-600 rounded-xl sm:rounded-2xl p-8 sm:p-12 text-center text-white opacity-0"
