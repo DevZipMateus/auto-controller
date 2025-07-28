@@ -44,6 +44,9 @@ Aguardo retorno!`;
     const encodedMessage = encodeURIComponent(whatsappMessage);
     const whatsappUrl = `https://wa.me/5521964565364?text=${encodedMessage}`;
     
+    console.log('Mensagem formatada:', whatsappMessage);
+    console.log('URL do WhatsApp:', whatsappUrl);
+    
     // Simular delay e abrir WhatsApp
     setTimeout(() => {
       window.open(whatsappUrl, '_blank');
