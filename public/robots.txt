@@ -1,0 +1,13 @@
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /login/
+Disallow: /private/
+Disallow: *.pdf$
+
+# Sitemap
+Sitemap: https://autocontroller.com.br/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { cn } from "@/lib/utils";
+import { Facebook, Instagram, Twitter, Linkedin, Youtube } from 'lucide-react';
 
 const Footer = () => {
   const scrollToSection = (sectionId: string) => {
@@ -12,19 +13,54 @@ const Footer = () => {
 
   const currentYear = new Date().getFullYear();
 
+  const socialLinks = [
+    { icon: <Facebook className="w-5 h-5" />, href: "#", label: "Facebook" },
+    { icon: <Instagram className="w-5 h-5" />, href: "#", label: "Instagram" },
+    { icon: <Twitter className="w-5 h-5" />, href: "#", label: "Twitter" },
+    { icon: <Linkedin className="w-5 h-5" />, href: "#", label: "LinkedIn" },
+    { icon: <Youtube className="w-5 h-5" />, href: "#", label: "YouTube" }
+  ];
+
   return (
-    <footer className="bg-tech-blue/95 backdrop-blur-md text-white pt-14 pb-8 relative z-10 border-t border-white/10">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8 mb-10">
-          <div>
-            <h3 className="font-display font-bold text-xl mb-4">
-              Tech<span className="text-accent">Help</span>
-            </h3>
-            <p className="text-white/80 mb-4 max-w-sm">
-              Transformamos problemas técnicos em soluções eficazes. Deixe-nos cuidar dos seus eletrônicos enquanto você foca no que realmente importa.
+    <footer className="bg-blue-900 text-white pt-16 pb-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-4 gap-8 mb-12">
+          {/* Logo e descrição */}
+          <div className="md:col-span-2">
+            <div className="flex items-center space-x-3 mb-4">
+              <img 
+                src="/lovable-uploads/d89a9588-d7c5-4208-a21f-f292aa8e7825.png" 
+                alt="Auto Controller System Logo"
+                className="h-12 w-12"
+              />
+              <h3 className="font-display font-bold text-xl">
+                Auto Controller <span className="text-blue-400">System</span>
+              </h3>
+            </div>
+            <p className="text-blue-100 mb-6 max-w-md leading-relaxed">
+              Especialistas em segurança automotiva através de sistemas GPS, GPRS, GSM e Satélite. 
+              A tecnologia do futuro presente!
             </p>
+            <p className="text-blue-300 font-semibold text-lg mb-4">
+              A TECNOLOGIA DO FUTURO PRESENTE!
+            </p>
+            
+            {/* Redes sociais */}
+            <div className="flex space-x-4">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  aria-label={social.label}
+                  className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full transition-colors duration-300"
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
           </div>
           
+          {/* Navegação */}
           <div>
             <h3 className="font-display font-semibold text-lg mb-4">
               Navegação
@@ -33,7 +69,7 @@ const Footer = () => {
               <li>
                 <a 
                   href="#home" 
-                  className="text-white/80 hover:text-white transition-colors duration-300"
+                  className="text-blue-200 hover:text-white transition-colors duration-300"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToSection('home');
@@ -45,19 +81,19 @@ const Footer = () => {
               <li>
                 <a 
                   href="#about" 
-                  className="text-white/80 hover:text-white transition-colors duration-300"
+                  className="text-blue-200 hover:text-white transition-colors duration-300"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToSection('about');
                   }}
                 >
-                  Sobre Nós
+                  Sobre
                 </a>
               </li>
               <li>
                 <a 
                   href="#services" 
-                  className="text-white/80 hover:text-white transition-colors duration-300"
+                  className="text-blue-200 hover:text-white transition-colors duration-300"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToSection('services');
@@ -68,20 +104,20 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="#how-it-works" 
-                  className="text-white/80 hover:text-white transition-colors duration-300"
+                  href="#plans" 
+                  className="text-blue-200 hover:text-white transition-colors duration-300"
                   onClick={(e) => {
                     e.preventDefault();
-                    scrollToSection('how-it-works');
+                    scrollToSection('plans');
                   }}
                 >
-                  Como Funciona
+                  Planos
                 </a>
               </li>
               <li>
                 <a 
                   href="#contact" 
-                  className="text-white/80 hover:text-white transition-colors duration-300"
+                  className="text-blue-200 hover:text-white transition-colors duration-300"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToSection('contact');
@@ -93,23 +129,47 @@ const Footer = () => {
             </ul>
           </div>
           
+          {/* Contato */}
           <div>
             <h3 className="font-display font-semibold text-lg mb-4">
               Contato
             </h3>
-            <address className="not-italic text-white/80 space-y-2">
-              <p>Rua da Tecnologia, 123 - Centro</p>
-              <p>São Paulo - SP, 01234-567</p>
-              <p>+55 (11) 99988-7766</p>
-              <p>contato@techhelp.com.br</p>
-            </address>
+            <div className="space-y-3 text-blue-200">
+              <p>
+                <strong>Endereço:</strong><br />
+                Rua Odilon Martins de Andrade, 355<br />
+                Rio de Janeiro - RJ
+              </p>
+              <p>
+                <strong>Telefone:</strong><br />
+                <a href="tel:+5521964565364" className="hover:text-white transition-colors">
+                  (21) 96456-5364
+                </a>
+              </p>
+              <p>
+                <strong>E-mail:</strong><br />
+                <a href="mailto:autocontrollerrastreamento@gmail.com" className="hover:text-white transition-colors">
+                  autocontrollerrastreamento@gmail.com
+                </a>
+              </p>
+              <p>
+                <strong>Horário:</strong><br />
+                Segunda a Sexta: 8h às 18h<br />
+                Sábado: 8h às 12h
+              </p>
+            </div>
           </div>
         </div>
         
-        <hr className="border-white/20 mb-8" />
+        <hr className="border-blue-800 mb-8" />
         
-        <div className="text-center text-white/80 text-sm">
-          <p>&copy; {currentYear} TechHelp Soluções. Todos os direitos reservados.</p>
+        <div className="grid md:grid-cols-2 gap-4 items-center">
+          <div className="text-blue-200 text-sm">
+            <p>&copy; {currentYear} Auto Controller System. Todos os direitos reservados.</p>
+          </div>
+          <div className="text-blue-200 text-sm md:text-right">
+            <p>Desenvolvido com tecnologia de ponta • Cobertura Nacional</p>
+          </div>
         </div>
       </div>
     </footer>

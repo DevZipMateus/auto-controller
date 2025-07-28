@@ -1,7 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Phone, MapPin, Clock, MessageCircle, Mail, Award } from 'lucide-react';
-import ContactInfo from './contact/ContactInfo';
+import { Phone, Mail, MessageCircle, Clock, MapPin, Send } from 'lucide-react';
 
 const Contact = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -18,7 +17,7 @@ const Contact = () => {
                 if (el) {
                   setTimeout(() => {
                     el.classList.add('animate-slide-up');
-                  }, index * 100);
+                  }, index * 150);
                 }
               });
             }
@@ -45,10 +44,10 @@ const Contact = () => {
       icon: <MessageCircle className="h-8 w-8" />,
       title: "WhatsApp",
       subtitle: "Resposta rápida",
-      info: "(11) 99988-7766",
-      description: "Atendimento instantâneo pelo WhatsApp. Envie fotos do problema e receba diagnóstico preliminar.",
-      action: "Solicitar Orçamento",
-      link: "https://wa.me/5555999887766?text=Olá!%20Preciso%20de%20um%20orçamento%20para%20reparo%20do%20meu%20equipamento.",
+      info: "(21) 96456-5364",
+      description: "Atendimento instantâneo via WhatsApp. Tire dúvidas e solicite orçamentos rapidamente.",
+      action: "Enviar Mensagem",
+      link: "https://wa.me/5521964565364?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20da%20Auto%20Controller%20System.",
       bgColor: "bg-green-600 hover:bg-green-700",
       popular: true
     },
@@ -56,90 +55,84 @@ const Contact = () => {
       icon: <Phone className="h-8 w-8" />,
       title: "Telefone",
       subtitle: "Atendimento direto",
-      info: "(11) 3333-4444",
-      description: "Ligue diretamente para nossa central de atendimento. Horário comercial de segunda a sábado.",
-      action: "Ligar para Orçamento",
-      link: "tel:+551133334444",
-      bgColor: "bg-red-600 hover:bg-red-700",
+      info: "(21) 96456-5364",
+      description: "Ligue diretamente para nossa equipe especializada para esclarecimentos e orçamentos.",
+      action: "Ligar Agora",
+      link: "tel:+5521964565364",
+      bgColor: "bg-blue-600 hover:bg-blue-700",
       popular: false
     },
     {
       icon: <Mail className="h-8 w-8" />,
       title: "E-mail",
       subtitle: "Suporte técnico",
-      info: "contato@techhelp.com.br",
-      description: "Envie detalhes do problema por e-mail. Resposta em até 2 horas no horário comercial.",
-      action: "Solicitar Orçamento",
-      link: "mailto:contato@techhelp.com.br?subject=Solicitação de Orçamento",
-      bgColor: "bg-black hover:bg-gray-800",
+      info: "autocontrollerrastreamento@gmail.com",
+      description: "Envie detalhes do seu projeto por e-mail e receba uma proposta personalizada.",
+      action: "Enviar E-mail",
+      link: "mailto:autocontrollerrastreamento@gmail.com?subject=Solicitação de Informações",
+      bgColor: "bg-blue-900 hover:bg-blue-800",
       popular: false
     }
   ];
 
-  const businessHours = [
-    { day: "Segunda a Sexta", hours: "08:00 - 18:00" },
-    { day: "Sábado", hours: "08:00 - 12:00" },
-    { day: "Domingo", hours: "Fechado" }
-  ];
-
   return (
-    <section id="contact" ref={sectionRef} className="py-24 bg-white relative">
-      <div className="section-container">
-        <div className="text-center mb-20">
+    <section id="contact" ref={sectionRef} className="py-16 sm:py-20 lg:py-24 xl:py-28 bg-gray-50 relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <div 
             ref={el => elementsRef.current[0] = el}
-            className="inline-block bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-semibold mb-4 opacity-0"
+            className="inline-block bg-blue-100 text-blue-800 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4 opacity-0"
           >
             CONTATO
           </div>
           <h2 
             ref={el => elementsRef.current[1] = el}
-            className="text-4xl md:text-5xl font-black text-black mb-6 opacity-0"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-blue-900 mb-4 sm:mb-6 opacity-0 leading-tight"
           >
-            Solicite Seu Orçamento
+            Entre em Contato
             <br />
-            <span className="text-red-600">Sem Compromisso</span>
+            <span className="text-blue-600">Conosco</span>
           </h2>
           <p 
             ref={el => elementsRef.current[2] = el}
-            className="text-xl text-gray-600 max-w-3xl mx-auto opacity-0"
+            className="text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-600 max-w-4xl mx-auto opacity-0 px-4 sm:px-0"
           >
-            Entre em contato conosco através de diversos canais e receba um orçamento personalizado 
-            para o reparo do seu equipamento.
+            Estamos prontos para atendê-lo e oferecer a melhor solução em segurança automotiva 
+            para suas necessidades específicas.
           </p>
         </div>
 
         {/* Métodos de contato */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {contactMethods.map((method, index) => (
             <div 
               key={index}
               ref={el => elementsRef.current[3 + index] = el}
-              className="relative bg-gray-50 rounded-2xl p-8 text-center opacity-0 hover:bg-white hover:shadow-lg transition-all duration-300 border-2 border-transparent hover:border-red-100"
+              className="relative bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 opacity-0 border-2 border-gray-100 hover:border-blue-200"
             >
               {method.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-4 py-1 rounded-full text-sm font-bold">
+                <div className="absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-bold">
                   MAIS RÁPIDO
                 </div>
               )}
 
-              <div className="bg-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 text-red-600 shadow-lg">
+              <div className="bg-gray-100 rounded-full w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mx-auto mb-4 sm:mb-6 text-blue-600">
                 {method.icon}
               </div>
               
-              <h3 className="text-black font-bold text-xl mb-2">
+              <h3 className="text-blue-900 font-bold text-lg sm:text-xl mb-2 text-center">
                 {method.title}
               </h3>
               
-              <p className="text-red-600 font-semibold text-sm mb-4">
+              <p className="text-blue-600 font-semibold text-sm mb-3 text-center">
                 {method.subtitle}
               </p>
 
-              <div className="text-2xl font-bold text-black mb-4">
+              <div className="text-lg sm:text-xl font-bold text-blue-900 mb-4 text-center">
                 {method.info}
               </div>
               
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-6 leading-relaxed text-center text-sm sm:text-base">
                 {method.description}
               </p>
               
@@ -147,7 +140,7 @@ const Contact = () => {
                 href={method.link}
                 target={method.link.startsWith('http') ? '_blank' : '_self'}
                 rel={method.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className={`inline-block w-full py-3 rounded-lg font-bold text-white transition-all duration-300 transform hover:scale-105 ${method.bgColor}`}
+                className={`inline-block w-full py-3 sm:py-4 rounded-lg font-bold text-white transition-all duration-300 transform hover:scale-105 text-center ${method.bgColor}`}
               >
                 {method.action}
               </a>
@@ -156,99 +149,156 @@ const Contact = () => {
         </div>
 
         {/* Informações adicionais */}
-        <div className="grid lg:grid-cols-2 gap-16">
-          {/* Localização e horários */}
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 mb-12 sm:mb-16">
+          {/* Horário e localização */}
           <div 
             ref={el => elementsRef.current[6] = el}
             className="opacity-0"
           >
-            <h3 className="text-3xl font-bold text-black mb-8">Localização & Horários</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-blue-900 mb-6 sm:mb-8">
+              Informações Adicionais
+            </h3>
             
             <div className="space-y-6">
-              <div className="flex items-start space-x-4 bg-gray-50 rounded-xl p-6">
-                <MapPin className="h-6 w-6 text-red-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h4 className="font-bold text-black mb-2">Endereço</h4>
-                  <p className="text-gray-600">
-                    Rua da Tecnologia, 123 - Centro<br />
-                    São Paulo - SP, 01234-567
-                  </p>
-                  <a 
-                    href="https://maps.google.com/?q=Rua+da+Tecnologia+123+Centro+São+Paulo"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-red-600 hover:text-red-700 font-semibold text-sm mt-2 inline-block"
-                  >
-                    Ver no Google Maps →
-                  </a>
+              <div className="bg-white rounded-xl p-6 shadow-md">
+                <div className="flex items-start space-x-4">
+                  <MapPin className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-bold text-blue-900 mb-2">Endereço</h4>
+                    <p className="text-gray-600">
+                      Rua Odilon Martins de Andrade, 355<br />
+                      Rio de Janeiro - RJ
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="bg-gray-50 rounded-xl p-6">
-                <div className="flex items-center space-x-4 mb-4">
-                  <Clock className="h-6 w-6 text-red-600" />
-                  <h4 className="font-bold text-black">Horário de Funcionamento</h4>
-                </div>
-                <div className="space-y-2">
-                  {businessHours.map((schedule, idx) => (
-                    <div key={idx} className="flex justify-between items-center">
-                      <span className="text-gray-700">{schedule.day}</span>
-                      <span className="font-semibold text-black">{schedule.hours}</span>
+              <div className="bg-white rounded-xl p-6 shadow-md">
+                <div className="flex items-start space-x-4">
+                  <Clock className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-bold text-blue-900 mb-2">Horário de Atendimento</h4>
+                    <div className="text-gray-600">
+                      <p>Segunda a Sexta: 8h às 18h</p>
+                      <p>Sábado: 8h às 12h</p>
+                      <p className="text-blue-600 font-semibold mt-2">
+                        📱 WhatsApp: 24h para emergências
+                      </p>
                     </div>
-                  ))}
+                  </div>
                 </div>
-                <div className="mt-4 p-3 bg-red-50 rounded-lg">
-                  <p className="text-red-800 text-sm font-medium">
-                    ⚡ Orçamentos via WhatsApp disponíveis 24h
-                  </p>
-                </div>
+              </div>
+
+              <div className="bg-blue-50 rounded-xl p-6">
+                <h4 className="font-bold text-blue-900 mb-3">Área de Cobertura</h4>
+                <ul className="space-y-2 text-gray-700">
+                  <li>🇧🇷 Todo território nacional</li>
+                  <li>🌎 América Latina</li>
+                  <li>🚚 Instalação in-loco</li>
+                  <li>📞 Suporte técnico remoto</li>
+                </ul>
               </div>
             </div>
           </div>
 
-          {/* Formulário de contato */}
+          {/* Formulário de contato simples */}
           <div 
             ref={el => elementsRef.current[7] = el}
             className="opacity-0"
           >
-            <ContactInfo setRef={() => {}} />
+            <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg">
+              <h3 className="text-xl sm:text-2xl font-bold text-blue-900 mb-6">
+                Solicite um Orçamento
+              </h3>
+              
+              <div className="space-y-4 mb-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Seu Nome
+                  </label>
+                  <input 
+                    type="text" 
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    placeholder="Digite seu nome completo"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Telefone/WhatsApp
+                  </label>
+                  <input 
+                    type="tel" 
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    placeholder="(21) 99999-9999"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Serviço de Interesse
+                  </label>
+                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
+                    <option>Rastreamento Veicular</option>
+                    <option>Vídeo Monitoramento</option>
+                    <option>ADAS - Sensor de Fadiga</option>
+                    <option>Gestão de Frotas</option>
+                    <option>Consultoria</option>
+                    <option>Outros</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Mensagem
+                  </label>
+                  <textarea 
+                    rows={4}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    placeholder="Descreva sua necessidade ou dúvida..."
+                  ></textarea>
+                </div>
+              </div>
+              
+              <button 
+                onClick={() => {
+                  window.open('https://wa.me/5521964565364?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20os%20serviços%20da%20Auto%20Controller%20System.', '_blank');
+                }}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
+              >
+                <Send className="w-5 h-5" />
+                <span>ENVIAR SOLICITAÇÃO</span>
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Garantias e benefícios */}
+        {/* Call to Action final */}
         <div 
           ref={el => elementsRef.current[8] = el}
-          className="bg-black rounded-2xl p-12 text-center mt-20 opacity-0"
+          className="bg-gradient-to-r from-blue-900 to-blue-600 rounded-xl sm:rounded-2xl p-8 sm:p-12 text-center text-white opacity-0"
         >
-          <Award className="h-12 w-12 text-red-500 mx-auto mb-6" />
-          <h3 className="text-white text-3xl font-bold mb-4">
-            Por Que Nos Escolher?
+          <h3 className="text-2xl sm:text-3xl font-bold mb-4">
+            Pronto para Proteger Seu Patrimônio?
           </h3>
-          <div className="grid md:grid-cols-3 gap-8 mt-8">
-            <div>
-              <div className="text-4xl font-bold text-red-500 mb-2">24h</div>
-              <div className="text-white font-semibold mb-2">Diagnóstico Rápido</div>
-              <div className="text-gray-300 text-sm">Identificamos o problema em até 24 horas</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-red-500 mb-2">90</div>
-              <div className="text-white font-semibold mb-2">Dias de Garantia</div>
-              <div className="text-gray-300 text-sm">Todos os serviços com garantia estendida</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-red-500 mb-2">15+</div>
-              <div className="text-white font-semibold mb-2">Anos de Experiência</div>
-              <div className="text-gray-300 text-sm">Especialistas em todas as marcas</div>
-            </div>
-          </div>
-          <div className="mt-8">
+          <p className="text-blue-100 text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto">
+            Entre em contato agora mesmo e descubra como nossa tecnologia pode transformar 
+            a segurança do seu veículo ou frota.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a 
-              href="https://wa.me/5555999887766?text=Olá!%20Gostaria%20de%20um%20orçamento%20personalizado%20para%20meus%20equipamentos." 
+              href="https://wa.me/5521964565364?text=Olá!%20Gostaria%20de%20um%20orçamento%20urgente%20para%20os%20serviços%20da%20Auto%20Controller%20System."
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-red-600 hover:bg-red-700 text-white px-10 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105"
+              className="bg-green-600 hover:bg-green-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-300 transform hover:scale-105"
             >
-              SOLICITAR ORÇAMENTO PERSONALIZADO
+              ORÇAMENTO URGENTE
+            </a>
+            <a 
+              href="tel:+5521964565364"
+              className="bg-white text-blue-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-300 transform hover:scale-105"
+            >
+              LIGAR AGORA
             </a>
           </div>
         </div>

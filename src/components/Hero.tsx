@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { cn } from "@/lib/utils";
-import { ArrowDown, Shield, Clock, Award, Star } from 'lucide-react';
+import { ArrowDown, Shield, Satellite, MapPin, Star } from 'lucide-react';
 
 const Hero = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -33,10 +33,10 @@ const Hero = () => {
     };
   }, []);
 
-  const scrollToServices = () => {
-    const servicesSection = document.getElementById('services');
-    if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -45,15 +45,15 @@ const Hero = () => {
       id="home" 
       className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 lg:pt-24 overflow-hidden"
       style={{
-        backgroundImage: `url('/lovable-uploads/69a48e2b-d0fd-4b71-a842-abe00864f7fd.png')`,
+        backgroundImage: `linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(37, 99, 235, 0.9) 50%, rgba(29, 78, 216, 0.95) 100%), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed'
       }}
     >
-      {/* Overlay esmaecido para melhor contraste */}
-      <div className="absolute inset-0 bg-black/70"></div>
+      {/* Overlay adicional para melhor contraste */}
+      <div className="absolute inset-0 bg-blue-900/20"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 text-center relative z-10">
         <div className="max-w-7xl mx-auto">
@@ -63,133 +63,154 @@ const Hero = () => {
             ref={el => elementsRef.current[0] = el}
             className="inline-flex items-center space-x-2 bg-white/95 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8 opacity-0 shadow-lg"
           >
-            <Award className="h-4 w-4 sm:h-5 sm:w-5 text-red-600" />
-            <span className="text-black font-medium text-xs sm:text-sm lg:text-base">+15 Anos de Excelência em Assistência Técnica</span>
+            <Shield className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
+            <span className="text-blue-900 font-medium text-xs sm:text-sm lg:text-base">Especialistas em Segurança Automotiva</span>
           </div>
           
           {/* Título principal */}
           <h1 
             ref={el => elementsRef.current[1] = el}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-light mb-4 sm:mb-6 opacity-0 leading-tight tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold mb-4 sm:mb-6 opacity-0 leading-tight tracking-tight"
             style={{ 
               animationDelay: '200ms',
               color: '#ffffff',
-              textShadow: '0 4px 30px rgba(0,0,0,0.9)',
+              textShadow: '0 4px 30px rgba(0,0,0,0.5)',
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
             }}
           >
-            ASSISTÊNCIA TÉCNICA
+            AUTO CONTROLLER
             <br />
             <span 
-              className="font-medium"
+              className="font-black"
               style={{
-                color: '#dc2626',
-                textShadow: '0 4px 40px rgba(220, 38, 38, 0.8)'
+                background: 'linear-gradient(45deg, #60a5fa, #3b82f6)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                textShadow: 'none'
               }}
             >
-              PROFISSIONAL
+              SYSTEM
             </span>
           </h1>
           
-          {/* Subtítulo */}
+          {/* Slogan */}
           <p 
             ref={el => elementsRef.current[2] = el}
-            className="text-white text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl max-w-5xl mx-auto mb-6 sm:mb-8 font-light opacity-0 leading-relaxed tracking-wide px-2 sm:px-4"
+            className="text-white text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl max-w-5xl mx-auto mb-6 sm:mb-8 font-medium opacity-0 leading-relaxed tracking-wide px-2 sm:px-4"
             style={{ 
               animationDelay: '400ms',
-              textShadow: '0 2px 15px rgba(0,0,0,0.8)',
+              textShadow: '0 2px 15px rgba(0,0,0,0.5)',
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
             }}
           >
-            Especialistas em <span className="text-red-400 font-medium">TVs, Celulares, Computadores e Eletrodomésticos</span>
+            A TECNOLOGIA DO FUTURO PRESENTE!
+          </p>
+
+          {/* Subtítulo descritivo */}
+          <p 
+            ref={el => elementsRef.current[3] = el}
+            className="text-blue-100 text-base sm:text-lg lg:text-xl max-w-4xl mx-auto mb-8 sm:mb-12 opacity-0 leading-relaxed px-2 sm:px-4"
+            style={{ 
+              animationDelay: '600ms',
+              textShadow: '0 2px 10px rgba(0,0,0,0.3)',
+            }}
+          >
+            Rastreamento e Monitoramento por <span className="text-white font-semibold">GPS • GPRS • Satélite</span>
             <br className="hidden sm:block" />
-            <span className="block sm:inline"> Diagnóstico gratuito • Garantia assegurada • Atendimento rápido</span>
+            <span className="block sm:inline">Vídeo Monitoramento com IA • ADAS • Gestão de Frotas</span>
           </p>
 
           {/* Estatísticas de credibilidade */}
           <div 
-            ref={el => elementsRef.current[3] = el}
+            ref={el => elementsRef.current[4] = el}
             className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 opacity-0"
-            style={{ animationDelay: '600ms' }}
+            style={{ animationDelay: '800ms' }}
           >
-            <div className="bg-white/15 backdrop-blur-md rounded-xl sm:rounded-2xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6 border border-white/20">
-              <div className="text-xl sm:text-2xl lg:text-3xl font-light text-white mb-1">+5.000</div>
-              <div className="text-xs sm:text-sm text-white/90 font-light tracking-wide">Equipamentos Reparados</div>
+            <div className="bg-white/20 backdrop-blur-md rounded-xl sm:rounded-2xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6 border border-white/30">
+              <div className="flex items-center justify-center mb-2">
+                <Satellite className="h-6 w-6 sm:h-8 sm:w-8 text-blue-300 mr-2" />
+                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">24/7</div>
+              </div>
+              <div className="text-xs sm:text-sm text-blue-100 font-medium tracking-wide">Monitoramento</div>
             </div>
-            <div className="bg-white/15 backdrop-blur-md rounded-xl sm:rounded-2xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6 border border-white/20">
+            <div className="bg-white/20 backdrop-blur-md rounded-xl sm:rounded-2xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6 border border-white/30">
+              <div className="flex items-center justify-center mb-2">
+                <MapPin className="h-6 w-6 sm:h-8 sm:w-8 text-blue-300 mr-2" />
+                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">Nacional</div>
+              </div>
+              <div className="text-xs sm:text-sm text-blue-100 font-medium tracking-wide">Cobertura</div>
+            </div>
+            <div className="bg-white/20 backdrop-blur-md rounded-xl sm:rounded-2xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6 border border-white/30">
               <div className="flex items-center justify-center mb-2">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-3 w-3 sm:h-4 sm:w-4 text-yellow-400 fill-current" />
+                  <Star key={i} className="h-3 w-3 sm:h-4 sm:w-4 text-yellow-300 fill-current" />
                 ))}
               </div>
-              <div className="text-xs sm:text-sm text-white/90 font-light tracking-wide">Avaliação 5 Estrelas</div>
-            </div>
-            <div className="bg-white/15 backdrop-blur-md rounded-xl sm:rounded-2xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6 border border-white/20">
-              <div className="text-xl sm:text-2xl lg:text-3xl font-light text-white mb-1">98%</div>
-              <div className="text-xs sm:text-sm text-white/90 font-light tracking-wide">Taxa de Sucesso</div>
+              <div className="text-xs sm:text-sm text-blue-100 font-medium tracking-wide">Alta Qualidade</div>
             </div>
           </div>
 
           {/* Diferenciais principais */}
           <div 
-            ref={el => elementsRef.current[4] = el}
+            ref={el => elementsRef.current[5] = el}
             className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mb-8 sm:mb-12 opacity-0"
-            style={{ animationDelay: '800ms' }}
+            style={{ animationDelay: '1000ms' }}
           >
-            <div className="flex items-center space-x-3 bg-black/50 backdrop-blur-md rounded-full px-4 sm:px-6 lg:px-8 py-3 sm:py-4 border border-white/20">
-              <Shield className="h-4 w-4 sm:h-5 sm:w-5 text-red-400" />
-              <span className="text-white font-light tracking-wide text-sm sm:text-base">Garantia de 90 Dias</span>
+            <div className="flex items-center space-x-3 bg-black/30 backdrop-blur-md rounded-full px-4 sm:px-6 lg:px-8 py-3 sm:py-4 border border-white/20">
+              <Shield className="h-4 w-4 sm:h-5 sm:w-5 text-blue-300" />
+              <span className="text-white font-medium tracking-wide text-sm sm:text-base">Segurança Garantida</span>
             </div>
-            <div className="flex items-center space-x-3 bg-black/50 backdrop-blur-md rounded-full px-4 sm:px-6 lg:px-8 py-3 sm:py-4 border border-white/20">
-              <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-red-400" />
-              <span className="text-white font-light tracking-wide text-sm sm:text-base">Diagnóstico em 24h</span>
+            <div className="flex items-center space-x-3 bg-black/30 backdrop-blur-md rounded-full px-4 sm:px-6 lg:px-8 py-3 sm:py-4 border border-white/20">
+              <Satellite className="h-4 w-4 sm:h-5 sm:w-5 text-blue-300" />
+              <span className="text-white font-medium tracking-wide text-sm sm:text-base">Tecnologia Avançada</span>
             </div>
           </div>
           
           {/* Call to Actions */}
           <div 
-            ref={el => elementsRef.current[5] = el}
+            ref={el => elementsRef.current[6] = el}
             className="flex flex-col lg:flex-row justify-center gap-4 lg:gap-6 opacity-0 px-4 sm:px-0"
-            style={{ animationDelay: '1000ms' }}
+            style={{ animationDelay: '1200ms' }}
           >
             <a 
-              href="https://wa.me/5555999887766?text=Olá!%20Preciso%20de%20um%20orçamento%20para%20reparo%20do%20meu%20equipamento." 
+              href="https://wa.me/5521964565364?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20da%20Auto%20Controller%20System." 
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-red-600 hover:bg-red-700 text-white px-6 sm:px-8 lg:px-12 py-4 sm:py-5 rounded-xl font-medium text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl border border-red-500 hover:border-red-400 tracking-wide"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 lg:px-12 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl border border-blue-500 hover:border-blue-400 tracking-wide"
             >
-              ORÇAMENTO GRATUITO AGORA
+              SOLICITAR ORÇAMENTO
             </a>
             <button 
-              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-6 sm:px-8 lg:px-12 py-4 sm:py-5 rounded-xl font-medium text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl border border-white/30 tracking-wide"
+              onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-6 sm:px-8 lg:px-12 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl border border-white/30 tracking-wide"
             >
-              CONHEÇA NOSSOS SERVIÇOS
+              CONHEÇA NOSSA EMPRESA
             </button>
           </div>
 
           {/* Confiança adicional */}
           <div 
-            ref={el => elementsRef.current[6] = el}
+            ref={el => elementsRef.current[7] = el}
             className="mt-12 sm:mt-16 lg:mt-20 opacity-0"
-            style={{ animationDelay: '1200ms' }}
+            style={{ animationDelay: '1400ms' }}
           >
-            <p className="text-white/90 text-base sm:text-lg lg:text-xl mb-4 sm:mb-6 font-light tracking-wide">
-              Mais de 15 anos cuidando dos seus equipamentos eletrônicos
+            <p className="text-blue-100 text-base sm:text-lg lg:text-xl mb-4 sm:mb-6 font-medium tracking-wide">
+              Atuação em todo território Nacional e América Latina
             </p>
-            <div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-8 lg:space-x-12 text-white/80 text-xs sm:text-sm font-light tracking-wide">
-              <span>• Técnicos Certificados</span>
-              <span>• Peças Originais</span>
-              <span>• Atendimento 6 dias/semana</span>
+            <div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-8 lg:space-x-12 text-blue-200 text-xs sm:text-sm font-medium tracking-wide">
+              <span>• Central de Monitoramento 24h</span>
+              <span>• Inteligência Embarcada</span>
+              <span>• Suporte Técnico Especializado</span>
             </div>
           </div>
         </div>
       </div>
       
       <button
-        onClick={scrollToServices}
+        onClick={scrollToAbout}
         className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 text-white/80 hover:text-white transition-colors duration-300 animate-float"
-        aria-label="Scroll down"
+        aria-label="Rolar para baixo"
       >
         <ArrowDown size={24} className="sm:w-8 sm:h-8" />
       </button>

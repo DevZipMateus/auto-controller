@@ -62,16 +62,18 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Cores específicas da TechHelp - mudança de laranja para vermelho
-				tech: {
-					blue: 'hsl(215, 70%, 45%)',
-					darkblue: 'hsl(215, 80%, 35%)',
-					lightblue: 'hsl(215, 60%, 55%)',
-					gray: 'hsl(215, 20%, 60%)',
-					lightgray: 'hsl(210, 30%, 94%)',
-					orange: 'hsl(0, 84%, 60%)', // Mudado para vermelho
-					green: 'hsl(142, 70%, 45%)',
-					white: '#FFFFFF',
+				// Paleta de cores baseada na logo da Auto Controller
+				'blue': {
+					50: 'hsl(210, 100%, 97%)',
+					100: 'hsl(210, 100%, 90%)',
+					200: 'hsl(210, 100%, 80%)',
+					300: 'hsl(210, 100%, 70%)',
+					400: 'hsl(210, 100%, 60%)',
+					500: 'hsl(210, 100%, 50%)',
+					600: 'hsl(210, 100%, 45%)',
+					700: 'hsl(210, 100%, 40%)',
+					800: 'hsl(210, 100%, 35%)',
+					900: 'hsl(210, 100%, 25%)',
 				},
 			},
 			borderRadius: {
