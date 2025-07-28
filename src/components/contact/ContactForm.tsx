@@ -27,15 +27,36 @@ const ContactForm: React.FC<ContactFormProps> = ({ setRef }) => {
     e.preventDefault();
     setLoading(true);
     
-    // Simulate form submission
+    // Formatear mensagem para WhatsApp
+    const whatsappMessage = `Olá! Gostaria de solicitar um orçamento.
+
+*Dados de Contato:*
+📝 Nome: ${formData.name}
+📧 Email: ${formData.email}
+📱 Telefone: ${formData.phone || 'Não informado'}
+
+*Mensagem:*
+${formData.message}
+
+Aguardo retorno!`;
+
+    // Codificar mensagem para URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappUrl = `https://wa.me/5521964565364?text=${encodedMessage}`;
+    
+    // Simular delay e abrir WhatsApp
     setTimeout(() => {
+      window.open(whatsappUrl, '_blank');
+      
       toast({
-        title: "Sucesso",
-        description: "Mensagem enviada com sucesso! Entraremos em contato em breve.",
+        title: "Redirecionando para WhatsApp",
+        description: "Sua mensagem foi formatada e você será redirecionado para o WhatsApp.",
       });
+      
+      // Limpar formulário
       setFormData({ name: '', email: '', phone: '', message: '' });
       setLoading(false);
-    }, 1500);
+    }, 1000);
   };
 
   return (
@@ -113,10 +134,10 @@ const ContactForm: React.FC<ContactFormProps> = ({ setRef }) => {
           )}
         >
           {loading ? (
-            <span>Enviando...</span>
+            <span>Enviando para WhatsApp...</span>
           ) : (
             <>
-              <span>Enviar Mensagem</span>
+              <span>Enviar via WhatsApp</span>
               <Send className="ml-2 h-4 w-4" />
             </>
           )}
