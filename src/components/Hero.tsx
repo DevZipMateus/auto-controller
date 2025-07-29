@@ -45,16 +45,13 @@ const Hero = () => {
       id="home" 
       className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 lg:pt-24 overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(37, 99, 235, 0.9) 50%, rgba(29, 78, 216, 0.95) 100%), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`,
+        backgroundImage: `linear-gradient(135deg, rgba(30, 58, 138, 0.7) 0%, rgba(37, 99, 235, 0.6) 50%, rgba(29, 78, 216, 0.7) 100%), url('/lovable-uploads/b6f9aa28-f7a3-4717-8a71-240719f28d93.png')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed'
       }}
     >
-      {/* Overlay adicional para melhor contraste */}
-      <div className="absolute inset-0 bg-blue-900/20"></div>
-      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 text-center relative z-10">
         <div className="max-w-7xl mx-auto">
           
