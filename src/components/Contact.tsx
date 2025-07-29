@@ -174,7 +174,7 @@ Aguardo retorno!`;
                 {method.subtitle}
               </p>
 
-              <div className="text-lg sm:text-xl font-bold text-blue-900 mb-4 text-center">
+              <div className="text-sm sm:text-base md:text-lg font-bold text-blue-900 mb-4 text-center break-words px-2">
                 {method.info}
               </div>
               
