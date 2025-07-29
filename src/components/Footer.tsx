@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { cn } from "@/lib/utils";
-import { Facebook, Instagram, Twitter, Linkedin, Youtube } from 'lucide-react';
 
 const Footer = () => {
   const scrollToSection = (sectionId: string) => {
@@ -13,14 +12,6 @@ const Footer = () => {
 
   const currentYear = new Date().getFullYear();
 
-  const socialLinks = [
-    { icon: <Facebook className="w-5 h-5" />, href: "#", label: "Facebook" },
-    { icon: <Instagram className="w-5 h-5" />, href: "#", label: "Instagram" },
-    { icon: <Twitter className="w-5 h-5" />, href: "#", label: "Twitter" },
-    { icon: <Linkedin className="w-5 h-5" />, href: "#", label: "LinkedIn" },
-    { icon: <Youtube className="w-5 h-5" />, href: "#", label: "YouTube" }
-  ];
-
   return (
     <footer className="bg-blue-900 text-white pt-16 pb-8 relative z-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,13 +20,10 @@ const Footer = () => {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <img 
-                src="/lovable-uploads/d89a9588-d7c5-4208-a21f-f292aa8e7825.png" 
+                src="/lovable-uploads/044c3fee-f2d6-4b6a-8981-db6184159656.png" 
                 alt="Auto Controller System Logo"
-                className="h-12 w-12"
+                className="h-16 w-auto"
               />
-              <h3 className="font-display font-bold text-xl">
-                Auto Controller <span className="text-blue-400">System</span>
-              </h3>
             </div>
             <p className="text-blue-100 mb-6 max-w-md leading-relaxed">
               Especialistas em segurança automotiva através de sistemas GPS, GPRS, GSM e Satélite. 
@@ -44,20 +32,6 @@ const Footer = () => {
             <p className="text-blue-300 font-semibold text-lg mb-4">
               A TECNOLOGIA DO FUTURO PRESENTE!
             </p>
-            
-            {/* Redes sociais */}
-            <div className="flex space-x-4">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full transition-colors duration-300"
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
           </div>
           
           {/* Navegação */}
