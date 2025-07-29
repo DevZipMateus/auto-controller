@@ -149,12 +149,12 @@ Aguardo retorno!`;
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 justify-items-center">
           {contactMethods.map((method, index) => (
             <div 
               key={index}
               ref={el => elementsRef.current[3 + index] = el}
-              className="relative bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 opacity-0 border-2 border-gray-100 hover:border-blue-200"
+              className="relative bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 opacity-0 border-2 border-gray-100 hover:border-blue-200 w-full max-w-sm"
             >
               {method.popular && (
                 <div className="absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-bold">
