@@ -62,7 +62,7 @@ const NavBar = () => {
             <img 
               src="/lovable-uploads/044c3fee-f2d6-4b6a-8981-db6184159656.png" 
               alt="Auto Controller System Logo"
-              className="h-40 w-40"
+              className="h-40 w-auto"
             />
           </a>
         </div>
@@ -102,7 +102,7 @@ const NavBar = () => {
                   <img 
                     src="/lovable-uploads/044c3fee-f2d6-4b6a-8981-db6184159656.png" 
                     alt="Auto Controller System Logo"
-                    className="h-40 w-40"
+                    className="h-40 w-auto"
                   />
                 </div>
                 <SheetClose className="p-2 rounded-full hover:bg-blue-100 transition-all">
