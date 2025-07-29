@@ -1,9 +1,12 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Menu, X, Navigation } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
+  
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -12,6 +15,7 @@ const NavBar = () => {
       });
     }
   };
+
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
@@ -21,59 +25,73 @@ const NavBar = () => {
         setScrolled(false);
       }
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  const navLinks = [{
-    name: 'Início',
-    id: 'home'
-  }, {
-    name: 'Sobre',
-    id: 'about'
-  }, {
-    name: 'Serviços',
-    id: 'services'
-  }, {
-    name: 'Planos',
-    id: 'plans'
-  }, {
-    name: 'Depoimentos',
-    id: 'testimonials'
-  }, {
-    name: 'Localização',
-    id: 'location'
-  }, {
-    name: 'Contato',
-    id: 'contact'
-  }];
-  return <header className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out", scrolled ? "py-2 sm:py-3 bg-white/95 backdrop-blur-md shadow-lg" : "py-3 sm:py-4 bg-transparent")}>
+
+  const navLinks = [
+    { name: 'Início', id: 'home' },
+    { name: 'Sobre', id: 'about' },
+    { name: 'Serviços', id: 'services' },
+    { name: 'Planos', id: 'plans' },
+    { name: 'Depoimentos', id: 'testimonials' },
+    { name: 'Localização', id: 'location' },
+    { name: 'Contato', id: 'contact' }
+  ];
+
+  return (
+    <header className={cn(
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
+      scrolled 
+        ? "py-1 sm:py-2 md:py-3 bg-white/95 backdrop-blur-md shadow-lg" 
+        : "py-2 sm:py-3 md:py-4 bg-transparent"
+    )}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 flex justify-between items-center">
         <div className="flex items-center">
-          <a href="#home" className="flex items-center font-display font-bold" onClick={e => {
-          e.preventDefault();
-          scrollToSection('home');
-        }}>
-            <img src="/lovable-uploads/044c3fee-f2d6-4b6a-8981-db6184159656.png" alt="Auto Controller System Logo" className="h-28 w-auto" />
+          <a 
+            href="#home" 
+            className="flex items-center font-display font-bold" 
+            onClick={e => {
+              e.preventDefault();
+              scrollToSection('home');
+            }}
+          >
+            <img 
+              src="/lovable-uploads/044c3fee-f2d6-4b6a-8981-db6184159656.png" 
+              alt="Auto Controller System Logo" 
+              className="h-12 sm:h-16 md:h-20 lg:h-24 w-auto"
+            />
           </a>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex space-x-6 xl:space-x-8">
-          {navLinks.map(link => <a key={link.id} href={`#${link.id}`} className="text-blue-900 hover:text-blue-600 transition-colors duration-300 text-sm xl:text-base font-medium relative group" onClick={e => {
-          e.preventDefault();
-          scrollToSection(link.id);
-        }}>
+          {navLinks.map(link => (
+            <a 
+              key={link.id} 
+              href={`#${link.id}`} 
+              className="text-blue-900 hover:text-blue-600 transition-colors duration-300 text-sm xl:text-base font-medium relative group" 
+              onClick={e => {
+                e.preventDefault();
+                scrollToSection(link.id);
+              }}
+            >
               {link.name}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-            </a>)}
+            </a>
+          ))}
         </nav>
 
         {/* Mobile Navigation */}
         <Sheet>
           <SheetTrigger asChild>
-            <button className="lg:hidden text-blue-900 p-2 rounded-md hover:bg-blue-100/50 transition-colors" aria-label="Abrir menu">
+            <button 
+              className="lg:hidden text-blue-900 p-2 rounded-md hover:bg-blue-100/50 transition-colors" 
+              aria-label="Abrir menu"
+            >
               <Menu size={20} className="sm:w-6 sm:h-6" />
             </button>
           </SheetTrigger>
@@ -81,22 +99,35 @@ const NavBar = () => {
             <div className="flex flex-col h-full">
               <div className="flex justify-between items-center p-4 sm:p-6 border-b border-blue-100">
                 <div className="flex items-center font-display font-bold text-lg sm:text-xl text-blue-900">
-                  <img src="/lovable-uploads/044c3fee-f2d6-4b6a-8981-db6184159656.png" alt="Auto Controller System Logo" className="h-40 w-auto" />
+                  <img 
+                    src="/lovable-uploads/044c3fee-f2d6-4b6a-8981-db6184159656.png" 
+                    alt="Auto Controller System Logo" 
+                    className="h-20 sm:h-24 w-auto"
+                  />
                 </div>
                 <SheetClose className="p-2 rounded-full hover:bg-blue-100 transition-all">
                   <X className="text-blue-900" size={18} />
                 </SheetClose>
               </div>
               <nav className="flex flex-col items-stretch justify-start flex-1 mt-4 sm:mt-8">
-                {navLinks.map((link, index) => <a key={link.id} href={`#${link.id}`} className={cn("text-blue-900 text-base sm:text-lg font-medium hover:bg-blue-100 transition-all w-full text-center py-4 sm:py-6 px-4 flex items-center justify-center", "relative overflow-hidden after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-1/3")} style={{
-                animationDelay: `${index * 100}ms`
-              }} onClick={e => {
-                e.preventDefault();
-                document.querySelector('[data-state="open"]')?.setAttribute('data-state', 'closed');
-                setTimeout(() => scrollToSection(link.id), 100);
-              }}>
+                {navLinks.map((link, index) => (
+                  <a 
+                    key={link.id} 
+                    href={`#${link.id}`} 
+                    className={cn(
+                      "text-blue-900 text-base sm:text-lg font-medium hover:bg-blue-100 transition-all w-full text-center py-4 sm:py-6 px-4 flex items-center justify-center",
+                      "relative overflow-hidden after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-1/3"
+                    )} 
+                    style={{ animationDelay: `${index * 100}ms` }}
+                    onClick={e => {
+                      e.preventDefault();
+                      document.querySelector('[data-state="open"]')?.setAttribute('data-state', 'closed');
+                      setTimeout(() => scrollToSection(link.id), 100);
+                    }}
+                  >
                     {link.name}
-                  </a>)}
+                  </a>
+                ))}
               </nav>
               <div className="p-4 sm:p-6 border-t border-blue-100 mt-auto">
                 <div className="text-blue-700 text-xs sm:text-sm text-center">
@@ -107,6 +138,8 @@ const NavBar = () => {
           </SheetContent>
         </Sheet>
       </div>
-    </header>;
+    </header>
+  );
 };
+
 export default NavBar;
