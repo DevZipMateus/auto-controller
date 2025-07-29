@@ -6,6 +6,7 @@ import About from '@/components/About';
 import Services from '@/components/Services';
 import Plans from '@/components/Plans';
 import Testimonials from '@/components/Testimonials';
+import EgestorERP from '@/components/EgestorERP';
 import Location from '@/components/Location';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -129,9 +130,12 @@ const Index = () => {
               <Testimonials />
             </div>
             <div className="section-bg-semi">
-              <Location />
+              <EgestorERP />
             </div>
             <div className="section-bg-alt">
+              <Location />
+            </div>
+            <div className="section-bg-semi">
               <Contact />
             </div>
           </div>
