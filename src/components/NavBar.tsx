@@ -60,7 +60,7 @@ const NavBar = () => {
             }}
           >
             <img 
-              src="/lovable-uploads/49c2ac4b-d421-4ec4-b029-5b9de238c0f0.png" 
+              src="/lovable-uploads/044c3fee-f2d6-4b6a-8981-db6184159656.png" 
               alt="Auto Controller System Logo"
               className="h-40 w-40"
             />
@@ -100,7 +100,7 @@ const NavBar = () => {
               <div className="flex justify-between items-center p-4 sm:p-6 border-b border-blue-100">
                 <div className="flex items-center font-display font-bold text-lg sm:text-xl text-blue-900">
                   <img 
-                    src="/lovable-uploads/49c2ac4b-d421-4ec4-b029-5b9de238c0f0.png" 
+                    src="/lovable-uploads/044c3fee-f2d6-4b6a-8981-db6184159656.png" 
                     alt="Auto Controller System Logo"
                     className="h-40 w-40"
                   />
