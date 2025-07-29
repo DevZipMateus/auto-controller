@@ -53,7 +53,7 @@ const NavBar = () => {
         <div className="flex items-center">
           <a 
             href="#home" 
-            className="flex items-center space-x-3 font-display font-bold text-lg sm:text-xl lg:text-2xl"
+            className="flex items-center font-display font-bold"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection('home');
@@ -62,10 +62,8 @@ const NavBar = () => {
             <img 
               src="/lovable-uploads/49c2ac4b-d421-4ec4-b029-5b9de238c0f0.png" 
               alt="Auto Controller System Logo"
-              className="h-[30px] w-[30px]"
+              className="h-40 w-40"
             />
-            <span className="hidden sm:inline text-blue-900">Auto Controller <span className="text-blue-600">System</span></span>
-            <span className="sm:hidden text-blue-900">Auto Controller</span>
           </a>
         </div>
 
@@ -100,13 +98,12 @@ const NavBar = () => {
           <SheetContent side="right" className="w-[90%] sm:w-[85%] p-0 bg-gradient-to-br from-white to-blue-50 border-l-4 border-blue-600">
             <div className="flex flex-col h-full">
               <div className="flex justify-between items-center p-4 sm:p-6 border-b border-blue-100">
-                <div className="flex items-center space-x-3 font-display font-bold text-lg sm:text-xl text-blue-900">
+                <div className="flex items-center font-display font-bold text-lg sm:text-xl text-blue-900">
                   <img 
                     src="/lovable-uploads/49c2ac4b-d421-4ec4-b029-5b9de238c0f0.png" 
                     alt="Auto Controller System Logo"
-                    className="h-[30px] w-[30px]"
+                    className="h-40 w-40"
                   />
-                  <span>Auto Controller <span className="text-blue-600">System</span></span>
                 </div>
                 <SheetClose className="p-2 rounded-full hover:bg-blue-100 transition-all">
                   <X className="text-blue-900" size={18} />
