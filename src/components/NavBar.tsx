@@ -62,7 +62,7 @@ const NavBar = () => {
             <img 
               src="/lovable-uploads/49c2ac4b-d421-4ec4-b029-5b9de238c0f0.png" 
               alt="Auto Controller System Logo"
-              className="h-8 w-8"
+              className="h-[30px] w-[30px]"
             />
             <span className="hidden sm:inline text-blue-900">Auto Controller <span className="text-blue-600">System</span></span>
             <span className="sm:hidden text-blue-900">Auto Controller</span>
@@ -104,7 +104,7 @@ const NavBar = () => {
                   <img 
                     src="/lovable-uploads/49c2ac4b-d421-4ec4-b029-5b9de238c0f0.png" 
                     alt="Auto Controller System Logo"
-                    className="h-8 w-8"
+                    className="h-[30px] w-[30px]"
                   />
                   <span>Auto Controller <span className="text-blue-600">System</span></span>
                 </div>
