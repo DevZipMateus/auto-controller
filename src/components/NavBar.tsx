@@ -36,6 +36,7 @@ const NavBar = () => {
     { name: 'Início', id: 'home' },
     { name: 'Sobre', id: 'about' },
     { name: 'Serviços', id: 'services' },
+    { name: 'Soluções', id: 'advanced-solutions' },
     { name: 'Planos', id: 'plans' },
     { name: 'Depoimentos', id: 'testimonials' },
     { name: 'Localização', id: 'location' },

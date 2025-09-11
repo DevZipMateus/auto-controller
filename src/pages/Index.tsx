@@ -4,6 +4,7 @@ import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Services from '@/components/Services';
+import AdvancedSolutions from '@/components/AdvancedSolutions';
 import Plans from '@/components/Plans';
 import Testimonials from '@/components/Testimonials';
 import EgestorERP from '@/components/EgestorERP';
@@ -124,6 +125,9 @@ const Index = () => {
               <Services />
             </div>
             <div className="section-bg-semi">
+              <AdvancedSolutions />
+            </div>
+            <div className="section-bg-alt">
               <Plans />
             </div>
             <div className="section-bg-alt">
