@@ -65,7 +65,7 @@ const Hero = () => {
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
             textShadow: 'none'
-          }} className="font-black text-neutral-50">
+          }} className="font-black text-zinc-50">
               SYSTEM
             </span>
           </h1>
