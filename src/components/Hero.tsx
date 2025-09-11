@@ -59,13 +59,7 @@ const Hero = () => {
         }}>
             AUTO CONTROLLER
             <br />
-            <span style={{
-            background: 'linear-gradient(45deg, #60a5fa, #3b82f6)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            textShadow: 'none'
-          }} className="font-black text-zinc-50">
+            <span className="font-black text-white">
               SYSTEM
             </span>
           </h1>
