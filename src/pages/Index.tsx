@@ -1,21 +1,23 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy } from 'react';
 import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Services from '@/components/Services';
-import AdvancedSolutions from '@/components/AdvancedSolutions';
-import Plans from '@/components/Plans';
-import Testimonials from '@/components/Testimonials';
-import EgestorERP from '@/components/EgestorERP';
-import Location from '@/components/Location';
-import Contact from '@/components/Contact';
-import LogisticsSolutions from '@/components/LogisticsSolutions';
-import Footer from '@/components/Footer';
-import WhatsAppButton from '@/components/WhatsAppButton';
-import ClickSpark from '@/components/ClickSpark';
+import LazySection from '@/components/LazySection';
 import { useParallax } from '@/hooks/useParallax';
 import { Helmet } from 'react-helmet-async';
+
+// Lazy load non-critical components
+const About = lazy(() => import('@/components/About'));
+const Services = lazy(() => import('@/components/Services'));
+const AdvancedSolutions = lazy(() => import('@/components/AdvancedSolutions'));
+const Plans = lazy(() => import('@/components/Plans'));
+const Testimonials = lazy(() => import('@/components/Testimonials'));
+const EgestorERP = lazy(() => import('@/components/EgestorERP'));
+const Location = lazy(() => import('@/components/Location'));
+const Contact = lazy(() => import('@/components/Contact'));
+const LogisticsSolutions = lazy(() => import('@/components/LogisticsSolutions'));
+const Footer = lazy(() => import('@/components/Footer'));
+const WhatsAppButton = lazy(() => import('@/components/WhatsAppButton'));
 
 const Index = () => {
   const { getParallaxStyle } = useParallax();
@@ -88,69 +90,75 @@ const Index = () => {
         </script>
       </Helmet>
       
-      <ClickSpark
-        sparkColor="#1e3a8a"
-        sparkSize={12}
-        sparkRadius={20}
-        sparkCount={6}
-        duration={500}
-        easing="ease-out"
-        extraScale={1.2}
-      >
-        <main className="min-h-screen flex flex-col antialiased overflow-x-hidden relative">
-          {/* Floating elements with JavaScript parallax */}
+      <div className="click-spark-container">
+        <main className="min-h-screen flex flex-col antialiased overflow-x-hidden relative contain-layout">
+          {/* Reduced floating elements for better performance */}
           <div 
-            className="fixed top-20 left-10 w-3 h-3 bg-white/20 rounded-full animate-float -z-10"
-            style={getParallaxStyle(0.1)}
+            className="fixed top-20 left-10 w-2 h-2 bg-white/10 rounded-full -z-10"
+            style={getParallaxStyle(0.05)}
           ></div>
           <div 
-            className="fixed top-32 right-16 w-2 h-2 bg-primary/30 rounded-full animate-float animation-delay-500 -z-10"
-            style={getParallaxStyle(0.15)}
-          ></div>
-          <div 
-            className="fixed bottom-32 left-20 w-4 h-4 bg-blue-600/20 rounded-full animate-float animation-delay-300 -z-10"
-            style={getParallaxStyle(0.25)}
-          ></div>
-          <div 
-            className="fixed bottom-20 right-12 w-2 h-2 bg-white/30 rounded-full animate-float animation-delay-700 -z-10"
-            style={getParallaxStyle(0.2)}
+            className="fixed bottom-32 right-20 w-2 h-2 bg-blue-600/10 rounded-full -z-10"
+            style={getParallaxStyle(0.08)}
           ></div>
           
           <NavBar />
           <Hero />
           <div className="space-y-0 relative z-10">
-            <div className="section-bg-semi">
-              <About />
-            </div>
-            <div className="section-bg-alt">
-              <Services />
-            </div>
-            <div className="section-bg-semi">
-              <AdvancedSolutions />
-            </div>
-            <div className="section-bg-alt">
-              <Plans />
-            </div>
-            <div className="section-bg-alt">
-              <Testimonials />
-            </div>
-            <div className="section-bg-semi">
-              <EgestorERP />
-            </div>
-            <div className="section-bg-alt">
-              <LogisticsSolutions />
-            </div>
-            <div className="section-bg-semi">
-              <Location />
-            </div>
-            <div className="section-bg-semi">
-              <Contact />
-            </div>
+            <LazySection>
+              <div className="section-bg-semi">
+                <About />
+              </div>
+            </LazySection>
+            <LazySection>
+              <div className="section-bg-alt">
+                <Services />
+              </div>
+            </LazySection>
+            <LazySection>
+              <div className="section-bg-semi">
+                <AdvancedSolutions />
+              </div>
+            </LazySection>
+            <LazySection>
+              <div className="section-bg-alt">
+                <Plans />
+              </div>
+            </LazySection>
+            <LazySection>
+              <div className="section-bg-alt">
+                <Testimonials />
+              </div>
+            </LazySection>
+            <LazySection>
+              <div className="section-bg-semi">
+                <EgestorERP />
+              </div>
+            </LazySection>
+            <LazySection>
+              <div className="section-bg-alt">
+                <LogisticsSolutions />
+              </div>
+            </LazySection>
+            <LazySection>
+              <div className="section-bg-semi">
+                <Location />
+              </div>
+            </LazySection>
+            <LazySection>
+              <div className="section-bg-semi">
+                <Contact />
+              </div>
+            </LazySection>
           </div>
-          <Footer />
-          <WhatsAppButton />
+          <LazySection>
+            <Footer />
+          </LazySection>
+          <LazySection>
+            <WhatsAppButton />
+          </LazySection>
         </main>
-      </ClickSpark>
+      </div>
     </>
   );
 };

@@ -5,12 +5,18 @@ export const useParallax = () => {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
+    let ticking = false;
+    let lastScrollY = 0;
+
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      const currentScrollY = window.scrollY;
+      // Only update if scroll difference is significant (debouncing)
+      if (Math.abs(currentScrollY - lastScrollY) > 2) {
+        setScrollY(currentScrollY);
+        lastScrollY = currentScrollY;
+      }
     };
 
-    // Add scroll event listener with throttling for performance
-    let ticking = false;
     const scrollListener = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
@@ -26,7 +32,8 @@ export const useParallax = () => {
   }, []);
 
   const getParallaxStyle = (speed: number = 0.5) => ({
-    transform: `translateY(${scrollY * speed}px)`,
+    transform: `translate3d(0, ${scrollY * speed}px, 0)`,
+    willChange: 'transform',
   });
 
   return {

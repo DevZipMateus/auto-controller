@@ -6,15 +6,15 @@ const WhatsAppButton = () => {
   const [isPulsing, setIsPulsing] = useState(false);
   
   useEffect(() => {
-    // Slight delay to show button with animation
+    // Optimized delays and intervals for performance
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 2000);
+    }, 1000);
     
-    // Set up pulsing animation interval
+    // Reduced frequency pulsing animation 
     const pulseInterval = setInterval(() => {
       setIsPulsing(prev => !prev);
-    }, 4000);
+    }, 8000);
     
     return () => {
       clearTimeout(timer);
@@ -29,16 +29,16 @@ const WhatsAppButton = () => {
   return (
     <button
       onClick={handleWhatsAppClick}
-      className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 rounded-full shadow-xl transition-all duration-500 
+      className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 rounded-full transition-all duration-300 bg-green-600 hover:bg-green-700 will-change-transform
         ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-        ${isPulsing ? 'animate-bounce shadow-green-500/50 shadow-2xl scale-110' : ''}
-        hover:scale-110 hover:shadow-2xl bg-green-600 hover:bg-green-700`}
+        hover:scale-105`}
       style={{
-        boxShadow: isPulsing ? '0 0 30px rgba(34, 197, 94, 0.7)' : '0 10px 25px rgba(0,0,0,0.2)',
+        boxShadow: isPulsing ? '0 0 20px rgba(34, 197, 94, 0.5), 0 10px 25px rgba(0,0,0,0.2)' : '0 10px 25px rgba(0,0,0,0.2)',
+        transform: isPulsing ? 'scale(1.05)' : 'scale(1)',
       }}
       aria-label="Contate-nos pelo WhatsApp"
     >
-      <div className={`absolute -inset-3 bg-green-500/30 rounded-full ${isPulsing ? 'animate-ping' : 'opacity-0'}`}></div>
+      <div className={`absolute -inset-2 bg-green-500/20 rounded-full transition-opacity duration-300 ${isPulsing ? 'opacity-100' : 'opacity-0'}`}></div>
       <svg 
         className="w-8 h-8 relative z-10" 
         fill="currentColor" 

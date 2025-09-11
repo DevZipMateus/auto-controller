@@ -203,18 +203,19 @@
     @apply bg-white/90 backdrop-blur-md rounded-xl p-4 sm:p-6 shadow-[0px_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300 hover:shadow-[0px_8px_30px_rgba(0,0,0,0.12)] hover:translate-y-[-4px] sm:hover:translate-y-[-8px] border border-gray-100;
   }
 
-  /* Float animation for floating elements */
+  /* Optimized float animation */
   @keyframes float {
     0%, 100% {
-      transform: translateY(0px);
+      transform: translate3d(0, 0, 0);
     }
     50% {
-      transform: translateY(-20px);
+      transform: translate3d(0, -10px, 0);
     }
   }
 
   .animate-float {
-    animation: float 6s ease-in-out infinite;
+    animation: float 8s ease-in-out infinite;
+    will-change: transform;
   }
 
   /* Slide up animation */
@@ -246,7 +247,19 @@
   }
 
   .animate-fade-in {
-    animation: fade-in 0.8s ease-out forwards;
+    animation: fade-in 0.6s ease-out forwards;
+    will-change: transform, opacity;
+  }
+
+  /* Performance optimizations */
+  .contain-layout {
+    contain: layout style;
+  }
+
+  .click-spark-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
   }
 
   /* Responsive optimizations */
