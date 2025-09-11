@@ -10,6 +10,7 @@ import Testimonials from '@/components/Testimonials';
 import EgestorERP from '@/components/EgestorERP';
 import Location from '@/components/Location';
 import Contact from '@/components/Contact';
+import LogisticsSolutions from '@/components/LogisticsSolutions';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import ClickSpark from '@/components/ClickSpark';
@@ -137,6 +138,9 @@ const Index = () => {
               <EgestorERP />
             </div>
             <div className="section-bg-alt">
+              <LogisticsSolutions />
+            </div>
+            <div className="section-bg-semi">
               <Location />
             </div>
             <div className="section-bg-semi">
