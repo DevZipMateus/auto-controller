@@ -130,15 +130,15 @@ const Hero = () => {
           </div>
           
           {/* Call to Actions */}
-          <div ref={el => elementsRef.current[6] = el} className="flex flex-col sm:flex-row lg:flex-row justify-center gap-3 sm:gap-4 lg:gap-6 opacity-0 px-4 sm:px-0" style={{
+          <div ref={el => elementsRef.current[6] = el} className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 lg:gap-6 opacity-0 px-4 sm:px-0" style={{
           animationDelay: '1200ms'
         }}>
-            <a href="https://wa.me/5521964565364?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20da%20Auto%20Controller%20System." target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base lg:text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl border border-blue-500 hover:border-blue-400 tracking-wide">
+            <a href="https://wa.me/5521964565364?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20da%20Auto%20Controller%20System." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base lg:text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl border border-blue-500 hover:border-blue-400 tracking-wide text-center">
               SOLICITAR ORÇAMENTO
             </a>
             <button onClick={() => document.getElementById('about')?.scrollIntoView({
             behavior: 'smooth'
-          })} className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base lg:text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl border border-white/30 tracking-wide">
+          })} className="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base lg:text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl border border-white/30 tracking-wide text-center">
               CONHEÇA NOSSA EMPRESA
             </button>
           </div>
