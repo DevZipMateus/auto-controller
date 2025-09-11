@@ -18,14 +18,14 @@
     --secondary-foreground: 210 100% 30%;
     --muted: 210 100% 95%;
     --muted-foreground: 210 100% 40%;
-    --accent: 210 100% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 0 0% 95%;
+    --accent-foreground: 0 0% 20%;
     --popover: 0 0% 100%;
     --popover-foreground: 210 100% 25%;
 
-    /* Cores primárias baseadas no azul da logo */
-    --primary: 210 100% 45%;
-    --primary-foreground: 0 0% 100%;
+    /* Cores primárias baseadas no branco */
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
     
