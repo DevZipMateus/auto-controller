@@ -62,7 +62,6 @@
   body {
     @apply antialiased;
     font-feature-settings: "ss01" on, "ss02" on, "cv01" on, "cv03" on;
-    position: relative;
     min-height: 100vh;
     background: white;
     color: hsl(210, 100%, 25%);

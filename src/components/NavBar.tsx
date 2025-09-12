@@ -45,10 +45,11 @@ const NavBar = () => {
 
   return (
     <header className={cn(
-      "fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ease-in-out will-change-transform",
+      "fixed top-0 left-0 right-0 z-[99999] transition-all duration-300 ease-in-out will-change-transform",
+      "!position-fixed transform-none contain-layout",
       scrolled 
-        ? "py-1 sm:py-2 md:py-3 bg-white/95 backdrop-blur-md shadow-lg" 
-        : "py-2 sm:py-3 md:py-4 bg-white/80 backdrop-blur-sm"
+        ? "py-1 sm:py-2 md:py-3 bg-white shadow-lg" 
+        : "py-2 sm:py-3 md:py-4 bg-white/90"
     )}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 flex justify-between items-center">
         <div className="flex items-center">
