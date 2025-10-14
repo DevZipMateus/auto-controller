@@ -145,15 +145,15 @@ const Index = () => {
                 <Location />
               </div>
             </LazySection>
-            <LazySection>
-              <div className="section-bg-semi">
-                <Contact />
-              </div>
-            </LazySection>
-          </div>
+          <LazySection>
+            <div className="section-bg-semi">
+              <Contact />
+            </div>
+          </LazySection>
           <LazySection>
             <Footer />
           </LazySection>
+        </div>
           <LazySection>
             <WhatsAppButton />
           </LazySection>
